@@ -1,0 +1,487 @@
+﻿/*
+ * Note: The firebase registration, password changing, email verification and user deleting only work with firebase accounts registered with FirebaseRegister!
+ * You obviously cannot modify third party auth stuff so keep that in mind when writing your scripts
+ */
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase.Analytics;
+using Firebase.Auth;
+using System.Security.Cryptography;
+using System.Text;
+
+using Facebook.Unity;
+
+public class Auth : MonoBehaviour {
+
+	private static Auth staticRef;
+
+	public static FirebaseAuth auth;
+	public static FirebaseUser activeUser;
+
+	private static bool isDownloadingPhoto;
+	private static bool isPhotoDownloaded;
+	private static Texture2D photoTexture; // Call GetPhotoTexture() to get the photoTexture
+
+	public enum AuthType { Firebase, Google, Facebook, Twitter }
+
+	public string googleClientId; // Obtained from the firebase console (OAuth 2.0 Client ID)
+	public string googleClientSecret; // Obtained from the firebase console
+
+	public bool enableFacebookLoginAPI = false;
+	private AccessToken activeFacebookAccessToken;
+
+	public string twitterAPIKey; // Obtained from the Twitter developer application page 
+	public string twitterAPISecret; // Obtained from the Twitter developer application page
+
+	// Variables for whether the token variables have been set
+	//private bool isGoogleAuthInUse;
+	private bool isFacebookAuthInUse;
+	//private bool isTwitterAuthInUse;
+
+	private float timescalePreFacebook = 1f; // Allows us to store the timescale before the facebook popup manually pauses the game
+
+	void Awake()
+	{
+		staticRef = (staticRef == null ? this : staticRef);
+	}
+
+	void Start()
+	{
+		auth = FirebaseAuth.DefaultInstance;
+		auth.StateChanged += AuthStateChanged;
+
+		//isGoogleAuthInUse = !string.IsNullOrEmpty (googleClientId) && !string.IsNullOrEmpty (googleClientSecret);
+		isFacebookAuthInUse = enableFacebookLoginAPI;
+		//isTwitterAuthInUse = !string.IsNullOrEmpty (twitterAPIKey) && !string.IsNullOrEmpty (twitterAPISecret);
+
+		// Unlike all other auth methods facebook needed its own plugin :| so if it's in use lets set stuff up
+		if (isFacebookAuthInUse) {
+			if (!FB.IsInitialized) {
+				FB.Init (FacebookInitComplete, FacebookOnHideUnity);
+			} else {
+				FacebookInitComplete();
+			}
+		}
+	}
+
+	void FacebookInitComplete()
+	{
+		if (FB.IsInitialized) {
+			// Facebook is initialized send the activation signal event
+			FB.ActivateApp ();
+		} else {
+			Analytics.LogError ("Failed to initialize the Facebook SDK!");
+		}
+	}
+
+	void FacebookOnHideUnity(bool isGameVisible)
+	{
+		if (!isGameVisible) {
+			timescalePreFacebook = Time.timeScale;
+			Time.timeScale = 0f;
+		} else {
+			Time.timeScale = timescalePreFacebook;
+		}
+	}
+
+	void AuthStateChanged(object sender, System.EventArgs eventArgs)
+	{
+		if (auth.CurrentUser != activeUser) {
+			bool signedIn = activeUser != auth.CurrentUser && auth.CurrentUser != null;
+
+			// If we're not signed in and activeUser is not null (aka was previously set) then the user just logged out
+			if (!signedIn && activeUser != null){
+				OnLogout ();
+			} else if(signedIn){
+				OnLogin ();
+			}
+		}
+	}
+
+	/// <summary>
+	/// Returned and encrypted string of the input string using SHA512 encryption
+	/// </summary>
+	/// <returns>The SHA512 encrypted string</returns>
+	/// <param name="inputString">String to be encrypted</param>
+	private static string sha512EncryptString(string inputString)
+	{
+		SHA512 shaCrypto = new SHA512Managed ();
+		byte[] stringByteArray = Encoding.UTF8.GetBytes (inputString);
+
+		byte[] encryptedStringByteArray = shaCrypto.ComputeHash (stringByteArray);
+		StringBuilder encryptedString = new StringBuilder ();
+
+		foreach (byte curByte in encryptedStringByteArray) {
+			encryptedString.Append (curByte.ToString ("x2"));
+		}
+
+		return encryptedString.ToString();
+	}
+
+	/// <summary>
+	/// Register the specified email and password to firebase
+	/// </summary>
+	/// <returns><c>true</c>, if registration was successful, <c>false</c> otherwise</returns>
+	/// <param name="email">Email address</param>
+	/// <param name="password">Plain text password</param>
+	public static bool FirebaseRegister(string email, string password, bool AutoLogin = false, bool AutoSendEmailVerification = false)
+	{
+		// Encrypt the password so we're not just storing it in plain text
+		string encryptedPassword = sha512EncryptString (password);
+
+		auth.CreateUserWithEmailAndPasswordAsync (email, encryptedPassword).ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("Registration was canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("Registration error! " + task.Exception);
+				return false;
+			}
+
+			// Firebase user has successfully been created
+			if(AutoLogin) FirebaseLogin(email, password);
+			if(AutoSendEmailVerification) FirebaseSendEmailVerification(task.Result);
+
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	/// <summary>
+	/// Changes the user password
+	/// </summary>
+	/// <returns><c>true</c>, if password was changed, <c>false</c> otherwise</returns>
+	/// <param name="newPassword">New plain text password</param>
+	public static bool FirebaseChangePassword(string newPassword)
+	{
+		// Encrypt the password so we're not just storing it in plain text
+		string encryptedNewPassword = sha512EncryptString (newPassword);
+
+		activeUser.UpdatePasswordAsync (encryptedNewPassword).ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("Change password was canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("Change password error " + task.Exception);
+				return false;
+			}
+
+			// Firebase user password changed successfully
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	/// <summary>
+	/// Sends a verification email to the email the user registered with, you can call IsEmailVerified() to check if the user has verified their email
+	/// </summary>
+	/// <returns><c>true</c>, if firebase verification email was sent, <c>false</c> otherwise.</returns>
+	/// <param name="requestedUser">Requested user.</param>
+	public static bool FirebaseSendEmailVerification(FirebaseUser requestedUser = null)
+	{
+		if (requestedUser == null) requestedUser = activeUser;
+
+		requestedUser.SendEmailVerificationAsync ().ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("Send email verification canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("Send email verification error " + task.Exception);
+				return false;
+			}
+
+			// Firebase email verification sent successfully
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	/// <summary>
+	/// Deletes the logged in user from the firebase user list
+	/// </summary>
+	/// <returns><c>true</c>, if firebase user was deleted, <c>false</c> otherwise.</returns>
+	public static bool FirebaseDeleteUser()
+	{
+		activeUser.DeleteAsync ().ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("Delete user canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("Delete user error " + task.Exception);
+				return false;
+			}
+
+			// Firebase account successfully deleted
+			staticRef.OnLogout();
+
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	/// <summary>
+	/// Login with the specified email and password
+	/// </summary>
+	/// <returns><c>true</c>, if login was successful, <c>false</c> otherwise</returns>
+	/// <param name="email">User email</param>
+	/// <param name="password">Plain text password</param>
+	public static bool FirebaseLogin(string email, string password)
+	{
+		// The stored password is encrypted so we need to encrypt the input password to match the string
+		string encryptedPassword = sha512EncryptString(password);
+
+		auth.SignInWithEmailAndPasswordAsync (email, encryptedPassword).ContinueWith (task => {
+			if (task.IsCanceled) {
+				Analytics.LogError ("Login was canceled!");
+				return false;
+			}
+
+			if (task.IsFaulted) {
+				Analytics.LogError ("Login error! " + task.Exception);
+				return false;
+			}
+
+			// Firebase login was successful
+			staticRef.OnLogin();
+
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	public static void FacebookLogin()
+	{
+		List<string> permissions = new List<string> (){ "public_profile", "email", "user_friends" };
+		FB.LogInWithReadPermissions (permissions, staticRef.FacebookAuthCallback);
+	}
+
+	private void FacebookAuthCallback(ILoginResult result)
+	{
+		if (FB.IsLoggedIn) {
+			// AcessToken class will have the session details
+			activeFacebookAccessToken = AccessToken.CurrentAccessToken;
+
+			// Use the facebook token to auth with firebase
+			AuthLogin(AuthType.Facebook);
+		} else {
+			Analytics.LogError ("User canceled facebook login!");
+		}
+	}
+
+	/// <summary>
+	/// Logout from the current logged in user
+	/// </summary>
+	public static void Logout()
+	{
+		auth.SignOut ();
+
+		staticRef.OnLogout ();
+	}
+
+	/// <summary>
+	/// Unlinks the active auth method from the firebase account
+	/// </summary>
+	/// <returns><c>true</c>, if auth was unlinked, <c>false</c> otherwise.</returns>
+	public static bool UnLinkAuth()
+	{
+		string linkedAuth = "";
+
+		auth.FetchProvidersForEmailAsync (GetEmail ()).ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("Fetch providers for email canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("Fetch providers for email error " + task.Exception);
+				return false;
+			}
+
+			linkedAuth = task.Result.ToString();
+
+			activeUser.UnlinkAsync (linkedAuth).ContinueWith (unlinkTask => {
+				if(unlinkTask.IsCanceled){
+					Analytics.LogError("UnLinkAuth was canceled!");
+					return false;
+				}
+
+				if(unlinkTask.IsFaulted){
+					Analytics.LogError("UnLinkAuth error " + task.Exception);
+					return false;
+				}
+
+				// The auth method is now unlinked from the firebase user reference
+				return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+			});
+
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	/// <summary>
+	/// Login using an auth method. Note: Only 1 auth type can be linked at a time! You'll need to call UnLinkAuth if you want to UnLink an auth type
+	/// </summary>
+	/// <returns><c>true</c>, if login was successful, <c>false</c> otherwise.</returns>
+	/// <param name="type">Auth type</param>
+	public static bool AuthLogin(AuthType type)
+	{
+		Credential credential = default(Credential);
+
+		switch(type)
+		{
+			case AuthType.Google:
+				credential = GoogleAuthProvider.GetCredential (staticRef.googleClientId, staticRef.googleClientSecret);
+				break;
+
+			case AuthType.Facebook:
+				if (staticRef.activeFacebookAccessToken == null)
+					staticRef.activeFacebookAccessToken = AccessToken.CurrentAccessToken;
+
+				credential = FacebookAuthProvider.GetCredential (staticRef.activeFacebookAccessToken.TokenString);
+				break;
+
+			case AuthType.Twitter:
+				credential = TwitterAuthProvider.GetCredential (staticRef.twitterAPIKey, staticRef.twitterAPISecret);
+				break;
+		}
+
+		auth.SignInWithCredentialAsync (credential).ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("AuthLogin for " + type.ToString() + " was canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("AuthLogin for " + type.ToString() + " encountered an error " + task.Exception);
+				return false;
+			}
+
+			// Google login was successful
+			staticRef.OnLogin();
+
+			// The login was successful so we'll only be returning true from here
+
+			// Attempt to link these auth'd credentials with firebase
+			task.Result.LinkWithCredentialAsync(credential).ContinueWith (linkTask => {
+				if(linkTask.IsCanceled){
+					Analytics.LogError("Link with credentials for " + type.ToString() + " was canceled!");
+					return true; // Login was already successful so whatever
+				}
+
+				if(linkTask.IsFaulted){
+					Analytics.LogError("Link with credentials for " + type.ToString() + " encountered an error " + task.Exception);
+					return true; // Login was already successful so whatever
+				}
+
+				// Link with credentials was a success, firebase will now keep track of this auth across games >:0
+
+				return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+			});
+
+			return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+		});
+
+		return true; // Not sure why but we need both of these or we get an error about all paths not returning something
+	}
+
+	private void OnLogout()
+	{
+		Analytics.LogEvent ("Logout"); // No built in event for logout
+		Analytics.SetUserProperty ("logged_in", "false"); // We know that if this property is set the user has logged in before
+
+		// Update the activeUser to match the actual authed user (null if logged out)
+		activeUser = auth.CurrentUser;
+	}
+
+	private void OnLogin()
+	{
+		Analytics.LogEvent (FirebaseAnalytics.EventLogin);
+		Analytics.SetUserProperty ("logged_in", "true"); // We know that if this property isn't set the user has never logged in
+
+		// Update the activeUser to match the actual authed user (null if logged out)
+		activeUser = auth.CurrentUser;
+
+		// Download the photo for this user so it's available if we request it
+		GetPhotoTexture ();
+	}
+
+	public static bool 		IsLoggedIn()		{ return (activeUser != null); 				}
+	public static string 	GetDisplayName()	{ return activeUser.DisplayName; 			}
+	public static string 	GetEmail()			{ return activeUser.Email; 					}
+	public static bool 		IsEmailVerified()	{ return activeUser.IsEmailVerified; 		}
+	public static string 	GetPhotoURL()		{ return activeUser.PhotoUrl.AbsoluteUri; 	}
+	public static string 	GetUserID()			{ return activeUser.UserId; 				}
+
+	/// <summary>
+	/// Returns the photo texture OR requests it if it's not yet downloaded
+	/// </summary>
+	/// <returns>The photo texture if downloaded</returns>
+	/// <param name="forceRedownload">If set to <c>true</c> active downloads will be canceled and the download will start again, if the image is already downloaded this will also force it to be downloaded again</param>
+	public static Texture2D GetPhotoTexture(bool forceRedownload = false)
+	{
+		if (forceRedownload) {
+			// Even if the photo is downloading or downloaded this will cancel the request and redownload it
+			isDownloadingPhoto = false;
+			isPhotoDownloaded = false;
+		}
+
+		if (!isDownloadingPhoto) {
+			if (isPhotoDownloaded) {
+				return photoTexture;
+			} else {
+				// The photo isn't already downloading and isn't downloaded yet so start the request
+				staticRef.StartPhotoDownload ();
+			}
+		} else {
+			// The photo is downloading so we just need to wait..
+		}
+
+		return null; // The photo has not downloaded yet
+	}
+
+	private void StartPhotoDownload()
+	{
+		StartCoroutine (DownloadPhoto ());
+	}
+
+	private IEnumerator DownloadPhoto()
+	{
+		// Start the photo web request
+		WWW photoRequest = new WWW(WWW.EscapeURL(GetPhotoURL ()));
+
+		// Wait for the photo download request to finish (if isDownloadingPhoto is set to false during the download it will force stop the coroutine)
+		while(!photoRequest.isDone && string.IsNullOrEmpty(photoRequest.error) && isDownloadingPhoto){
+			yield return null;
+		}
+
+		// If there was no issues with the photo download then set the photoTexture as the downloaded texture
+		if (photoRequest.isDone && string.IsNullOrEmpty (photoRequest.error)) {
+			photoTexture = photoRequest.texture;
+			isPhotoDownloaded = true;
+		}
+
+		// Mark the photo downloading state as false so we can download the photo again if needed
+		isDownloadingPhoto = false;
+
+		// Cleanup the web request or stop the request if the coroutine was force ended with isDownloadingPhoto being set to false early
+		photoRequest.Dispose ();
+	}
+}

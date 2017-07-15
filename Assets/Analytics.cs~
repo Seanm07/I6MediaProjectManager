@@ -1,0 +1,78 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase.Analytics;
+
+public class Analytics : MonoBehaviour {
+
+	// Enable or disable analytics collection (enabled by default)
+	public static void SetAnalyticsEnabled(bool wantEnabled)
+	{
+		FirebaseAnalytics.SetAnalyticsCollectionEnabled (wantEnabled);
+	}
+
+	/* 
+	 * Example of event logging, keeping events categorised:
+	 * LogEvent("Car Selection", "Colour", "Blue");
+	 * LogEvent("Car Selection", "Colour", "Red");
+	 * LogEvent("Car Selection", "Model", "Ford");
+	 * LogEvent("Car Selection", "Gear Type", "Manual");
+	 * LogEvent("Entered Mode Type", "Multiplayer", "6 Players");
+	 * LogEvent("Entered Mode Type", "Multiplayer", "4 Players");
+	 * LogEvent("Entered Mode Type", "Single Player");
+	 * LogEvent("Final Score", "Multiplayer", 1234);
+	 * LogEvent("Pressed Vehicle Selection Atleast Once");
+	 * Remember to use firebase built in analytics strings when logging certain actions such as FirebaseAnalytics.EventLogin
+	 */
+	public static void LogEvent(string eventName)
+	{
+		FirebaseAnalytics.LogEvent (eventName);
+	}
+
+	public static void LogEvent(string eventCategory, string eventLabel)
+	{
+		FirebaseAnalytics.LogEvent (eventCategory, eventLabel, "");
+	}
+
+	public static void LogEvent(string eventCategory, string eventLabel, string eventValue)
+	{
+		FirebaseAnalytics.LogEvent (eventCategory, eventLabel, eventValue);
+	}
+
+	public static void LogEvent(string eventCategory, string eventLabel, int eventValue)
+	{
+		FirebaseAnalytics.LogEvent (eventCategory, eventLabel, eventValue);
+	}
+
+	public static void LogEvent(string eventCategory, string eventLabel, float eventValue)
+	{
+		FirebaseAnalytics.LogEvent (eventCategory, eventLabel, eventValue);
+	}
+
+	public static void LogEvent(string eventCategory, string eventLabel, long eventValue)
+	{
+		FirebaseAnalytics.LogEvent (eventCategory, eventLabel, eventValue);
+	}
+
+	public static void LogScreen(string screenName)
+	{
+		FirebaseAnalytics.LogEvent ("screenView", screenName, "");
+	}
+
+	public static void LogError(string errorName, bool isFatal = false)
+	{
+		FirebaseAnalytics.LogEvent ("error", errorName, isFatal ? "fatal" : "not fatal");
+	}
+
+	/// <summary>
+	/// Sets the property for this user which is logged along with the events of this user.
+	/// Warning: It is against the rules to log personal information even if it's hashed such as email or names!
+	/// </summary>
+	/// <param name="propertyName">Property name.</param>
+	/// <param name="propertyValue">Property value.</param>
+	public static void SetUserProperty(string propertyName, string propertyValue)
+	{
+		FirebaseAnalytics.SetUserProperty (propertyName, propertyValue);
+	}
+}

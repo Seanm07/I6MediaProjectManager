@@ -1,0 +1,117 @@
+{
+  "project_info": {
+    "project_number": "30693392233",
+    "firebase_url": "https://test-70969.firebaseio.com",
+    "project_id": "test-70969",
+    "storage_bucket": "test-70969.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30693392233:android:c41aba35f201fb95",
+        "android_client_info": {
+          "package_name": "com.pickle.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30693392233-fuq71ah83s6qoj7fhgr84808lt5152ue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pickle.test",
+            "certificate_hash": "52d03c136b9f9287802b855c61fd4b5765cbf723"
+          }
+        },
+        {
+          "client_id": "30693392233-es8i1q8vgfjq29a9c00u6f4p8vd5rhe8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCHSgkuE3DEHhqx0EJPaZWDfgcCu__Y0k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30693392233-es8i1q8vgfjq29a9c00u6f4p8vd5rhe8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30693392233:android:1c4770cc37fb7096",
+        "android_client_info": {
+          "package_name": "com.pickle.cargame3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30693392233-es8i1q8vgfjq29a9c00u6f4p8vd5rhe8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCHSgkuE3DEHhqx0EJPaZWDfgcCu__Y0k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30693392233:android:6fddd7b005795772",
+        "android_client_info": {
+          "package_name": "com.i6.traingame3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30693392233-es8i1q8vgfjq29a9c00u6f4p8vd5rhe8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCHSgkuE3DEHhqx0EJPaZWDfgcCu__Y0k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,99 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase.RemoteConfig;
+
+public class CustomRemoteConfig {
+	public string name;
+	public object defaultValue;
+}
+
+public class RemoteConfig : MonoBehaviour {
+
+	Dictionary<string, object> defaultConfig = new Dictionary<string, object>();
+
+	public List<CustomRemoteConfig> customDefaultConfig = new List<CustomRemoteConfig> ();
+
+	void Awake()
+	{
+		ProjectManager config = ProjectManager.staticRef;
+
+		defaultConfig.Add ("useAdMob", config.useAdMob);
+		defaultConfig.Add ("useIAS", config.useIAS);
+		defaultConfig.Add ("useFirebaseAnalytics", config.useFirebaseAnalytics);
+		//defaultConfig.Add ("useFirebaseRemoteConfig", config.useFirebaseRemoteConfig);
+
+		defaultConfig.Add ("useFirebaseAuth", config.useFirebaseAuth);
+		defaultConfig.Add ("useFirebaseDatabase", config.useFirebaseDatabase);
+		defaultConfig.Add ("useFirebaseInvites", config.useFirebaseInvites);
+		defaultConfig.Add ("useFirebaseMessaging", config.useFirebaseMessaging);
+		defaultConfig.Add ("useFirebaseStorage", config.useFirebaseStorage);
+
+		defaultConfig.Add ("admobDebugModeEnabled", false);
+		defaultConfig.Add ("iASDebugModeEnabled", false);
+
+		// Add custom developer defined values from the inspector into the defaultConfig dictionary
+		foreach (CustomRemoteConfig newDefaultConfig in customDefaultConfig)
+			defaultConfig.Add (newDefaultConfig.name, newDefaultConfig.defaultValue);
+
+		// Assign all the default values from above
+		FirebaseRemoteConfig.SetDefaults (defaultConfig);
+
+		FetchRemoteConfig ();
+	}
+
+	public void FetchRemoteConfig()
+	{
+		FirebaseRemoteConfig.FetchAsync ().ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError ("Fetching of RemoteConfig cancelled!");
+				return;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError ("Failed to fetch RemoteConfig! " + task.Exception.Message);
+				return;
+			}
+
+			FlushCache();
+		});
+	}
+
+	// This needs to be called when a value is expected to be different or the GetValue(..) values will be cached
+	public static void FlushCache()
+	{
+		FirebaseRemoteConfig.ActivateFetched ();
+	}
+
+	public static ConfigValue GetValue(string key)
+	{
+		return FirebaseRemoteConfig.GetValue (key);
+	}
+
+	public static string GetStringValue(string key)
+	{
+		return GetValue (key).StringValue;
+	}
+
+	public static bool GetBoolValue(string key)
+	{
+		return GetValue (key).BooleanValue;
+	}
+
+	public static double GetDoubleValue(string key)
+	{
+		return GetValue (key).DoubleValue;
+	}
+
+	public static long GetLongValue(string key)
+	{
+		return GetValue (key).LongValue;
+	}
+
+	// Note that any values outside the int range will be clamped due to limits
+	public static int GetIntValue(string key)
+	{
+		return (int)GetValue (key).LongValue;
+	}
+}

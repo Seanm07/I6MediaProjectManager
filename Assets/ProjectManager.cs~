@@ -1,0 +1,60 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase;
+using Firebase.Analytics;
+
+public class ProjectManager : MonoBehaviour {
+
+	public static ProjectManager staticRef;
+
+	public enum StoreType { Android, Amazon, iOS, WindowsMobile, PC };
+	public enum StoreAccount { i6Games, GamePickle, Other };
+
+	[Header("Main Project Plugins")]
+	public bool useAdMob = true;
+	public bool useIAS = true;
+	public bool useFirebaseAnalytics = true;
+	public bool useFirebaseRemoteConfig = true;
+
+	[Header("Optional Project Plugins")]
+	public bool useFirebaseAuth = false;
+	public bool useFirebaseDatabase = false;
+	public bool useFirebaseInvites = false;
+	public bool useFirebaseMessaging = false;
+	public bool useFirebaseStorage = false;
+
+	[Header("Project Settings")]
+	public StoreType activeStoreType;
+	public StoreAccount activeStoreAccount;
+
+	// The dependency status determines if the device has all the firebase dependencies, if not we can repair whatever's missing
+	private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+
+	void Awake()
+	{
+		// Define this script as the static reference if it isn't already set, otherwise point at existing ref
+		staticRef = (staticRef == null ? this : staticRef);
+
+		FirebaseApp.LogLevel = LogLevel.Verbose;
+
+		dependencyStatus = FirebaseApp.CheckDependencies ();
+
+		if (dependencyStatus != DependencyStatus.Available) {
+			FirebaseApp.FixDependenciesAsync ().ContinueWith (task => {
+				dependencyStatus = FirebaseApp.CheckDependencies();
+
+				if(dependencyStatus != DependencyStatus.Available){
+					Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+				}
+			});
+		}
+	}
+
+	void Start()
+	{
+		// Log the app launch event
+		Analytics.LogEvent (FirebaseAnalytics.EventAppOpen);
+	}
+}

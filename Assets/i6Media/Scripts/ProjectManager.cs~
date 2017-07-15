@@ -1,0 +1,183 @@
+﻿/*
+ * Last updated 2nd June 2017
+ * Written by Sean McManus for i6 Media sean@i6.com
+ */
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase;
+
+#if UNITY_EDITOR
+	using UnityEditor;
+#endif
+
+#if analytics
+	using Firebase.Analytics;
+#endif
+
+#if database
+	using Firebase.Database;
+#endif
+
+public class ProjectManager : MonoBehaviour {
+
+	public static ProjectManager staticRef;
+
+	public enum StoreType { GooglePlay, Amazon, AppleStore };
+	public enum StoreAccount { i6Games, GamePickle };
+
+	[Header("Main Project Plugins")]
+	public bool useAdMob = true;
+	public bool useIAS = true;
+	public bool useFirebaseAnalytics = true;
+	public bool useFirebaseRemoteConfig = true;
+
+	[Header("Optional Project Plugins")]
+	public bool useFirebaseAuth = false;
+	public bool useFirebaseDatabase = false;
+	public bool useFirebaseInvites = false;
+	public bool useFirebaseMessaging = false;
+	public bool useFirebaseStorage = false;
+
+	[Header("Project Settings")]
+	#if UNITY_EDITOR
+		[ReadOnly] public BuildTargetGroup activeBuildTarget; // This is just to help show the developer that the scripts are based off build target
+	#endif
+	public StoreType activeStoreType;
+	public StoreAccount activeStoreAccount;
+	public bool isDebugModeActive;
+	public bool forceAppToNeverSleep;
+
+	public LogLevel firebaseLogLevel;
+
+	// Private so normal developers can't enable this by mistake
+	private static bool isAdvancedDebugModeActive = true;
+
+	// The dependency status determines if the device has all the firebase dependencies, if not we can repair whatever's missing
+	private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+
+	#if UNITY_EDITOR
+	public class ReadOnlyAttribute : PropertyAttribute{}
+
+	[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+	public class ReadOnlyDrawer : PropertyDrawer
+	{
+		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+		{
+			return EditorGUI.GetPropertyHeight(property, label, true);
+		}
+
+		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+		{
+			GUI.enabled = false;
+			EditorGUI.PropertyField(position, property, label, true);
+			GUI.enabled = true;
+		}
+	}
+	#endif
+
+	void Awake()
+	{
+		// Define this script as the static reference if it isn't already set, otherwise point at existing ref
+		staticRef = (staticRef == null ? this : staticRef);
+
+		FirebaseApp.LogLevel = firebaseLogLevel;
+
+		Screen.sleepTimeout = forceAppToNeverSleep ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
+	}
+
+	void Start()
+	{
+		// Makes sure dependencies are setup correctly then calls the Initialize functions of scripts when ready
+		InitializeFirebase();
+	}
+
+	private void InitializeFirebase()
+	{
+		dependencyStatus = FirebaseApp.CheckDependencies ();
+
+		if (dependencyStatus != DependencyStatus.Available) {
+			Log("Firebase dependencies not ready.. asynchronously fixing..");
+
+			FirebaseApp.FixDependenciesAsync ().ContinueWith (task => {
+				dependencyStatus = FirebaseApp.CheckDependencies();
+
+				if(dependencyStatus != DependencyStatus.Available){
+					Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+				} else {
+					OnInitializationComplete();
+				}
+			});
+		} else {
+			OnInitializationComplete();
+		}
+	}
+
+	private void OnInitializationComplete()
+	{
+		#if analytics
+			Analytics.LogEvent (FirebaseAnalytics.EventAppOpen);
+		#endif
+
+		RemoteConfig.Initialize();
+		Database.Initialize();
+
+		Auth.Initialize();
+
+		#if analytics
+			Fabric.Crashlytics.Crashlytics.SetDebugMode(true);
+		#endif
+	}
+
+	public static bool IsDebugModeActive()
+	{
+		return staticRef.isDebugModeActive;
+	}
+
+	public static void Log (string value, LogType logType = LogType.Log, bool overrideDebugMode = false)
+	{
+		if (IsDebugModeActive() || overrideDebugMode){
+			switch(logType)
+			{
+				case LogType.Log: 
+					Debug.Log (value); 
+					break;
+
+				case LogType.Assert:
+				case LogType.Error:
+				case LogType.Exception:
+					Debug.LogError(value);
+					break;
+
+				case LogType.Warning:
+					Debug.LogWarning(value);
+					break;
+			}
+		}
+	}
+
+	// Advanced logging for brave developers messing with the plugin manager backend
+	public static void AdvLog (string value, LogType logType = LogType.Log)
+	{
+		if(isAdvancedDebugModeActive){
+			switch(logType)
+			{
+				case LogType.Log:
+					Debug.Log(value);
+					break;
+
+				case LogType.Assert:
+				case LogType.Error:
+				case LogType.Exception:
+					Debug.LogError(value);
+					break;
+
+				case LogType.Warning:
+					Debug.LogWarning(value);
+					break;
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IASHandler : MonoBehaviour {
+
+	public int jsonFileId = 0;
+	public int adTypeId = 1; // 1 = Square, 2 = Tall
+
+	private UITexture selfTexture;
+
+	private string activeUrl;
+	private string activePackageName;
+
+	private bool isTextureAssigned = false;
+
+	void Awake()
+	{
+		selfTexture = GetComponent<UITexture>();
+	}
+
+	void OnEnable()
+	{
+		IAS.OnIASImageDownloaded += OnIASReady;
+		IAS.OnForceChangeWanted += OnIASForced;
+
+		SetupAdvert();
+	}
+
+	void OnDisable()
+	{
+		IAS.OnIASImageDownloaded -= OnIASReady;
+		IAS.OnForceChangeWanted -= OnIASForced;
+
+		isTextureAssigned = false; // Allows the texture on this IAS ad to be replaced
+	}
+
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.R)){
+			isTextureAssigned = false;
+
+			IAS.RefreshBanners(jsonFileId, adTypeId);
+		}
+	}
+
+	private void OnIASReady()
+	{
+		SetupAdvert();
+	}
+
+	private void OnIASForced()
+	{
+		isTextureAssigned = false;
+
+		SetupAdvert();
+	}
+
+	private void SetupAdvert()
+	{
+		if(!isTextureAssigned && IAS.IsAdReady(jsonFileId, adTypeId)){
+			Texture adTexture = IAS.GetAdTexture(jsonFileId, adTypeId);
+			activeUrl = IAS.GetAdURL(jsonFileId, adTypeId);
+			activePackageName = IAS.GetAdPackageName(jsonFileId, adTypeId);
+
+			selfTexture.mainTexture = adTexture;
+			isTextureAssigned = true;
+
+			IAS.OnImpression(activePackageName);
+		}
+	}
+
+	void OnClick()
+	{
+		if(selfTexture != null && !string.IsNullOrEmpty(activeUrl)){
+			IAS.OnClick(activePackageName);
+
+			Application.OpenURL(activeUrl);
+		}
+	}
+
+}

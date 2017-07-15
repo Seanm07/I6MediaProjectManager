@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ProjectManager : MonoBehaviour {
+
+	public static ProjectManager instance;
+
+	public enum StoreType { Android, Amazon, iOS, WindowsMobile, PC };
+	public enum StoreAccount { i6Games, GamePickle, Other };
+
+	[Header("Project Plugin Enabling")]
+	public bool useAdMob = true;
+	public bool useIAS = true;
+
+	public bool useFirebaseAnalytics = true;
+	public bool useFirebaseAuth = false;
+	public bool useFirebaseDatabase = false;
+	public bool useFirebaseInvites = false;
+	public bool useFirebaseMessaging = false;
+	public bool useFirebaseRemoteConfig = true;
+	public bool useFirebaseStorage = false;
+
+	[Header("Project Settings")]
+	public StoreType activeStoreType;
+	public StoreAccount activeStoreAccount;
+
+	void Awake()
+	{
+		// Define the instance if it doesn't exist, otherwise just use the existing to stop duplicates
+		instance = (instance == null ? this : instance);
+	}
+}

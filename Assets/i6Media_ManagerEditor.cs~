@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEditor;
+
+[CustomEditor(typeof(ProjectManager))]
+public class ProjectManagerEditor : Editor 
+{
+	public override void OnInspectorGUI()
+	{
+		#if UNITY_4
+			EditorGUILayout.HelpBox("These plugins do not officially support Unity 4! Make sure you know what you're doing as the plugins and scripts are untested in Unity 4!", MessageType.Warning);
+		#endif
+
+		SerializedObject serializedTarget = new SerializedObject (target);
+		bool adMobEnabled = serializedTarget.FindProperty ("useAdMob").boolValue;
+		bool iasEnabled = serializedTarget.FindProperty ("useIAS").boolValue;
+		bool analyticsEnabled = serializedTarget.FindProperty ("useFirebaseAnalytics").boolValue;
+		bool remoteConfigEnabled = serializedTarget.FindProperty ("useFirebaseRemoteConfig").boolValue;
+
+		if(!adMobEnabled) EditorGUILayout.HelpBox("The AdMob plugin is disabled! Unless told otherwise your project should always contain the admob plugin!", MessageType.Warning);
+		if(!iasEnabled) EditorGUILayout.HelpBox("The IAS plugin is disabled! Unless told otherwise your project should always contain this plugin!", MessageType.Warning);
+		if(!analyticsEnabled) EditorGUILayout.HelpBox("The Analytics plugin is disabled! Unless told otherwise your project should always contain this plugin!", MessageType.Warning);
+		if(!remoteConfigEnabled) EditorGUILayout.HelpBox("The Remote Config plugin is disabled! We use this plugin to control some backend settings in your app! Unless told otherwise this plugin should be enabled!", MessageType.Warning);
+
+		DrawDefaultInspector ();
+	}
+}

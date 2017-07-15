@@ -1,0 +1,242 @@
+{
+	"pluginInfo": [
+		{
+			"pluginName":"firebase_global",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.App.dll",
+				"Firebase/Plugins/Google.MiniJson.dll",
+				"Firebase/Plugins/link.xml",
+				"Firebase/Plugins/Unity.Compat.dll",
+				"Firebase/Plugins/Unity.Tasks.dll",
+				"Plugins/x86_64/Firebase/App.bundle",
+				"Plugins/x86_64/Firebase/App.dll",
+				"Plugins/x86_64/Firebase/App.so"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.App.dll",
+				"Plugins/iOS/Firebase/libApp.a"
+			],
+			"androidPathList": [
+				"Plugins/Android/Firebase/AndroidManifest.xml",
+				"Plugins/Android/Firebase/project.properties"
+			]
+		},
+		{
+			"pluginName":"analytics",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Analytics.dll",
+				"Plugins/x86_64/Firebase/Analytics.bundle",
+				"Plugins/x86_64/Firebase/Analytics.dll",
+				"Plugins/x86_64/Firebase/Analytics.so",
+				"Firebase/Editor/AnalyticsDeps.cs",
+				"Fabric/Kits/Crashlytics"
+			],
+			"iosPathList": [
+				"Plugins/iOS/Firebase/libAnalytics.a",
+				"Firebase/Plugins/iOS/Firebase.Analytics.dll",
+				"Plugins/iOS/Fabric/Crashlytics.framework",
+				"Plugins/iOS/Fabric/Crashlytics-Wrapper"
+			],
+			"androidPathList": [
+				"Plugins/Android/crashlytics",
+				"Plugins/Android/crashlytics-wrapper"
+			]
+		},
+		{
+			"pluginName":"auth",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Auth.dll",
+				"Plugins/x86_64/Firebase/Auth.bundle",
+				"Plugins/x86_64/Firebase/Auth.dll",
+				"Plugins/x86_64/Firebase/Auth.so",
+				"Firebase/Editor/AuthDeps.cs"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.Auth.dll",
+				"Plugins/iOS/Firebase/libAuth.a"
+			],
+			"androidPathList": [
+				
+			]
+		},
+		{
+			"pluginName":"database",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Database.dll",
+				"Firebase/Plugins/Google.Sharpen.dll",
+				"Firebase/Plugins/Http/link.xml",
+				"Plugins/x86_64/Firebase/Auth.bundle",
+				"Plugins/x86_64/Firebase/Auth.dll",
+				"Plugins/x86_64/Firebase/Auth.so"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.Auth.dll",
+				"Plugins/iOS/Firebase/libAuth.a"
+			],
+			"androidPathList": [
+
+			]
+		},
+		{
+			"pluginName":"invites",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Invites.dll",
+				"Plugins/x86_64/Firebase/Invites.bundle",
+				"Plugins/x86_64/Firebase/Invites.dll",
+				"Plugins/x86_64/Firebase/Invites.so",
+				"Firebase/Editor/InvitesDeps.cs"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.Invites.dll",
+				"Plugins/iOS/Firebase/libInvites.a"
+			],
+			"androidPathList": [
+				
+			]
+		},
+		{
+			"pluginName":"messaging",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Messaging.dll",
+				"Plugins/x86_64/Firebase/Messaging.bundle",
+				"Plugins/x86_64/Firebase/Messagining.dll",
+				"Plugins/x86_64/Firebase/Messaging.so",
+				"Firebase/Editor/MessagingDeps.cs"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.Messaging.dll",
+				"Plugins/iOS/Firebase/libMessaging.a"
+			],
+			"androidPathList": [
+				
+			]
+		},
+		{
+			"pluginName":"remote_config",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.RemoteConfig.dll",
+				"Plugins/x86_64/Firebase/RemoteConfig.bundle",
+				"Plugins/x86_64/Firebase/RemoteConfig.dll",
+				"Plugins/x86_64/Firebase/RemoveConfig.so",
+				"Firebase/Editor/RemoteConfigDeps.cs"
+			],
+			"iosPathList": [
+				"Plugins/iOS/Firebase/libRemoteConfig.a"
+			],
+			"androidPathList": [
+				
+			]
+		},
+		{
+			"pluginName":"storage",
+			"globalPathList": [
+				"Firebase/Plugins/Firebase.Auth.dll",
+				"Firebase/Plugins/Firebase.Storage.dll",
+				"Firebase/Plugins/Google.Sharpen.dll",
+				"Firebase/Plugins/Http/link.xml",
+				"Plugins/x86_64/Firebase/Auth.bundle",
+				"Plugins/x86_64/Firebase/Auth.dll",
+				"Plugins/x86_64/Firebase/Auth.so"
+			],
+			"iosPathList": [
+				"Firebase/Plugins/iOS/Firebase.Auth.dll",
+				"Plugins/iOS/Firebase/libAuth.a"
+			],
+			"androidPathList": [
+
+			]
+		},
+		{
+			"pluginName":"facebook",
+			"globalPathList": [
+				"FacebookSDK",
+				"Plugins/Android/AndroidManifest.xml"
+			],
+			"iosPathList": [
+				"FacebookSDK/Plugins/iOS"
+			],
+			"androidPathList": [
+				"FacebookSDK/Plugins/Android"
+			]
+		},
+		{
+			"pluginName":"twitter",
+			"globalPathList": [
+				
+			],
+			"iosPathList": [
+				"Plugins/iOS/Fabric/TwitterCore.framework",
+				"Plugins/iOS/Fabric/TwitterKit.framework",
+				"Plugins/iOS/Fabric/TwitterKitResources.bundle",
+				"Plugins/iOS/Fabric/TwitterKit-Wrapper"
+			],
+			"androidPathList": [
+				"Plugins/Android/twitter-core",
+				"Plugins/Android/twitterkit-deps",
+				"Plugins/Android/twitterkit-wrapper"
+			]
+		},
+		{
+			"pluginName": "google",
+			"globalPathList": [
+				"GooglePlayGames"
+			],
+			"iosPathList": [
+				"Plugins/iOS/GPGSAppController.h",
+				"Plugins/iOS/GPGSAppController.mm",
+				"Plugins/iOS/gpg.bundle",
+				"Plugins/iOS/gpg.framework"
+			],
+			"androidPathList": [
+				"Plugins/Android/libs/armeabi-v7a/libqpq.so",
+				"Plugins/Android/libs/x86/libqpq.so",
+				"Plugins/Android/MainLibProj/libs/play-games-plugin-support.jar",
+				"Plugins/Android/MainLibProj/project.properties"
+			]
+		},
+		{
+			"pluginName":"admob",
+			"globalPathList": [
+				"GoogleMobileAds"
+			],
+			"iosPathList": [
+				"Plugins/iOS/GADUAdLoader.h",
+				"Plugins/iOS/GADUAdLoader.m",
+				"Plugins/iOS/GADUAdNetworkExtras.h",
+				"Plugins/iOS/GADUBanner.h",
+				"Plugins/iOS/GADUBanner.m",
+				"Plugins/iOS/GADUInterface.m",
+				"Plugins/iOS/GADUInterstitial.h",
+				"Plugins/iOS/GADUInterstitial.m",
+				"Plugins/iOS/GADUNativeCustomTemplateAd.h",
+				"Plugins/iOS/GADUNativeCustomTemplateAd.m",
+				"Plugins/iOS/GADUNativeExpressAd.h",
+				"Plugins/iOS/GADUNativeExpressAd.m",
+				"Plugins/iOS/GADUObjectCache.h",
+				"Plugins/iOS/GADUObjectCache.m",
+				"Plugins/iOS/GADUPluginUtil.h",
+				"Plugins/iOS/GADUPluginUtil.m",
+				"Plugins/iOS/GADURequest.h",
+				"Plugins/iOS/GADURequest.m",
+				"Plugins/iOS/GADURewardBasedVideoAd.h",
+				"Plugins/iOS/GADURewardBasedVideoAd.m",
+				"Plugins/iOS/GADUTypes.h"
+			],
+			"androidPathList": [
+				"Plugins/Android/GoogleMobileAdsPlugin"
+			]
+		},
+		{
+			"pluginName":"ias",
+			"globalPahtList":[
+
+			],
+			"iosPathList": [
+
+			],
+			"androidPathList": [
+				"Plugins/Android/Pickle_GetPackages.jar"
+			]
+		}
+	]
+}

@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Inapp\iOSBillingEvents.cs">
+    <Files>
+      <File FileName="Assets\Inapp\iOSBillingEvents.cs" Line="42" Column="1" />
+      <File FileName="Assets\Inapp\AndroidBillingEvents.cs" Line="7" Column="1" />
+      <File FileName="Assets\Inapp\BillingEvents.cs" Line="11" Column="41" />
+      <File FileName="Assets\Inapp\iOSBilling.cs" Line="32" Column="31" />
+      <File FileName="Assets\Inapp\AndroidPluginUtility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Inapp\AndroidBilling.cs" Line="1" Column="1" />
+      <File FileName="Assets\Inapp\Billing.cs" Line="30" Column="24" />
+      <File FileName="Assets\Inapp\Extensions\IDictionaryExtensions.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Catchpoint exceptionName="System.NullReferenceException" includeSubclasses="True" />
+      <Catchpoint exceptionName="System.IO.FileNotFoundException" includeSubclasses="True" />
+      <Catchpoint exceptionName="System.IO.DirectoryNotFoundException" includeSubclasses="True" />
+      <Catchpoint exceptionName="System.ArgumentOutOfRangeException" includeSubclasses="True" />
+      <Catchpoint exceptionName="System.Runtime.Serialization.SerializationException" includeSubclasses="True" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

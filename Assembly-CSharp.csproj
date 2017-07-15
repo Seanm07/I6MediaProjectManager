@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{9939F9A6-AB93-09AA-6D19-0C764E1460F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_2;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;admob;auth;analytics;twitter;google;ias;remote_config;storage;messaging;invites;database;USES_BILLING;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Examples\ExampleIASRefreshButton.cs" />
+     <Compile Include="Assets\Examples\ExampleMenuButtonHandler.cs" />
+     <Compile Include="Assets\Examples\ExampleUsage.cs" />
+     <Compile Include="Assets\Examples\ExampleUserEmail.cs" />
+     <Compile Include="Assets\Examples\ExampleUserEmailVerified.cs" />
+     <Compile Include="Assets\Examples\ExampleUserName.cs" />
+     <Compile Include="Assets\Examples\ExampleUserPhoto.cs" />
+     <Compile Include="Assets\Fabric\Kits\Answers\Runtime\Answers.cs" />
+     <Compile Include="Assets\Fabric\Kits\Answers\Runtime\Internal\AnswersAndroidImplementation.cs" />
+     <Compile Include="Assets\Fabric\Kits\Answers\Runtime\Internal\AnswersAppleImplementation.cs" />
+     <Compile Include="Assets\Fabric\Kits\Answers\Runtime\Internal\AnswersStubImplementation.cs" />
+     <Compile Include="Assets\Fabric\Kits\Answers\Runtime\Internal\IAnswers.cs" />
+     <Compile Include="Assets\Fabric\Kits\Crashlytics\Runtime\Crashlytics.cs" />
+     <Compile Include="Assets\Fabric\Kits\Crashlytics\Runtime\CrashlyticsInit.cs" />
+     <Compile Include="Assets\Fabric\Kits\Crashlytics\Runtime\Internal\AndroidImpl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Crashlytics\Runtime\Internal\IOSImpl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Crashlytics\Runtime\Internal\Impl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\AndroidTwitterImpl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\EditorTwitterImpl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\IOSTwitterImpl.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\ITwitter.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\Models\ApiError.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\Models\AuthToken.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\Models\Card.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\Models\TwitterSession.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\Twitter.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\TwitterComponent.cs" />
+     <Compile Include="Assets\Fabric\Kits\Twitter\Runtime\TwitterInit.cs" />
+     <Compile Include="Assets\Fabric\Runtime\Fabric.cs" />
+     <Compile Include="Assets\Fabric\Runtime\FabricInit.cs" />
+     <Compile Include="Assets\Fabric\Runtime\FabricUtils.cs" />
+     <Compile Include="Assets\Fabric\Runtime\Internal\AndroidImpl.cs" />
+     <Compile Include="Assets\Fabric\Runtime\Internal\IOSImpl.cs" />
+     <Compile Include="Assets\Fabric\Runtime\Internal\Impl.cs" />
+     <Compile Include="Assets\Fabric\ThirdParty\MiniJSON.cs" />
+     <Compile Include="Assets\GPGSIds.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\AdLoader.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\AdPosition.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\AdRequest.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\AdSize.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\BannerView.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeEventArgs.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\Gender.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\NativeExpressAdView.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\Reward.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Api\RewardBasedVideoAd.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\DummyClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\IAdLoaderClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\IBannerClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\ICustomNativeTemplateClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\IInterstitialClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\INativeExpressAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Common\Utils.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\AdLoaderClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\BannerClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\CustomNativeTemplateClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\NativeExpressAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardBasedVideoAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\AdLoaderClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\BannerClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\CustomNativeTemplateClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Externs.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InterstitialClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\NativeExpressAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RewardBasedVideoAdClient.cs" />
+     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Achievement.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\CommonStatusCodes.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\CommonTypes.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\DummyClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Events\IEvent.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Events\IEventsClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\IPlayGamesClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\LeaderboardScoreData.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\IRealTimeMultiplayerClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\ITurnBasedMultiplayerClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\Invitation.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\MatchOutcome.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\Participant.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\Player.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\RealTimeMultiplayerListener.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Multiplayer\TurnBasedMatch.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\AdvertisingResult.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\ConnectionRequest.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\ConnectionResponse.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\DummyNearbyConnectionClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\EndpointDetails.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\INearbyConnectionClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Nearby\NearbyConnectionConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\PlayGamesClientConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\PlayerStats.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Quests\IQuest.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Quests\IQuestMilestone.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Quests\IQuestsClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\SavedGame\ISavedGameClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\SavedGame\ISavedGameMetadata.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\SavedGame\SavedGameMetadataUpdate.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\ScorePageToken.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\CaptureOverlayStateListener.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\VideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\VideoCaptureState.cs" />
+     <Compile Include="Assets\GooglePlayGames\BasicApi\Video\iVideoClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\GameInfo.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesAchievement.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesLeaderboard.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesLocalUser.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesPlatform.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesScore.cs" />
+     <Compile Include="Assets\GooglePlayGames\ISocialPlatform\PlayGamesUserProfile.cs" />
+     <Compile Include="Assets\GooglePlayGames\OurUtils\Logger.cs" />
+     <Compile Include="Assets\GooglePlayGames\OurUtils\Misc.cs" />
+     <Compile Include="Assets\GooglePlayGames\OurUtils\PlatformUtils.cs" />
+     <Compile Include="Assets\GooglePlayGames\OurUtils\PlayGamesHelperObject.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\AndroidClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\AndroidTokenClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Developers\JavaInterfaceProxy.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Developers\JavaObjWrapper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\GoogleApiClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\PendingResult.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\Result.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\ResultCallback.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\ResultCallbackProxy.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\Api\Status.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Common\ConnectionResult.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Games.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\LoadPlayerStatsResultObject.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\PlayerStats.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\PlayerStatsObject.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\Stats.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Android\Gms\Games\Stats\StatsObject.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\IClientImpl.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\IOS\IOSClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\IOS\IOSTokenClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\CallbackUtils.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\ConversionUtils.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Achievement.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\AchievementManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\AndroidPlatformConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Builder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\CaptureOverlayStateListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\CommonErrorStatus.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\EndpointDiscoveryListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Event.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\EventManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\GameServices.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\InternalHooks.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\IosPlatformConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Leaderboard.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\LeaderboardManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\MessageListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\MultiplayerInvitation.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\MultiplayerParticipant.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\NearbyConnectionTypes.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\NearbyConnections.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\NearbyConnectionsBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\NearbyConnectionsStatus.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\ParticipantResults.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Player.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\PlayerManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\PlayerStats.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Quest.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\QuestManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\QuestMilestone.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\RealTimeEventListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\RealTimeMultiplayerManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\RealTimeRoom.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\RealTimeRoomConfig.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\RealTimeRoomConfigBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Score.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\ScorePage.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\ScoreSummary.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Sentinels.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\SnapshotManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\SnapshotMetadata.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\SnapshotMetadataChange.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\SnapshotMetadataChangeBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\StatsManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Status.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\SymbolLocation.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMatch.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMatchConfig.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMatchConfigBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\TurnBasedMultiplayerManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\Types.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoCaptureState.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\Cwrapper\VideoManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\JavaUtils.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeEventClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeNearbyConnectionClientFactory.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeNearbyConnectionsClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeRealtimeMultiplayerClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeSavedGameClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeTurnBasedMultiplayerClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\NativeVideoClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\AchievementManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\AndroidPlatformConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\BaseReferenceHolder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\Callbacks.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\CaptureOverlayStateListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\EventManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\GameServices.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\GameServicesBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\IosPlatformConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\LeaderboardManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\MultiplayerInvitation.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\MultiplayerParticipant.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeAchievement.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeAppIdentifier.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeConnectionRequest.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeConnectionResponse.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeEndpointDetails.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeEndpointDiscoveryListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeEvent.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeLeaderboard.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeMessageListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativePlayer.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativePlayerStats.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeRealTimeRoom.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeScore.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeScoreEntry.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeScorePage.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeScorePageToken.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeScoreSummary.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeSnapshotMetadata.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeSnapshotMetadataChange.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeStartAdvertisingResult.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeTurnBasedMatch.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeVideoCapabilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NativeVideoCaptureState.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NearbyConnectionsManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\NearbyConnectionsManagerBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\PInvokeUtilities.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\ParticipantResults.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\PlatformConfiguration.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\PlayerManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\PlayerSelectUIResponse.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\RealTimeEventListenerHelper.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\RealtimeManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\RealtimeRoomConfig.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\RealtimeRoomConfigBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\SnapshotManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\StatsManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedMatchConfig.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\TurnBasedMatchConfigBuilder.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\PInvoke\VideoManager.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\Native\UnsupportedSavedGamesClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\NearbyConnectionClientFactory.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" />
+     <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
+     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
+     <Compile Include="Assets\Inapp\AndroidBilling.cs" />
+     <Compile Include="Assets\Inapp\AndroidBillingEvents.cs" />
+     <Compile Include="Assets\Inapp\AndroidPluginUtility.cs" />
+     <Compile Include="Assets\Inapp\Billing.cs" />
+     <Compile Include="Assets\Inapp\BillingEvents.cs" />
+     <Compile Include="Assets\Inapp\Extensions\IDictionaryExtensions.cs" />
+     <Compile Include="Assets\Inapp\iOSBilling.cs" />
+     <Compile Include="Assets\Inapp\iOSBillingEvents.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\EnvelopContent.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\LanguageSelection.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\TypewriterEffect.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButton.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonActivate.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonColor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonKeys.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonMessage.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonOffset.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonRotation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonScale.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UICenterOnChild.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UICenterOnClick.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragCamera.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropContainer.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropItem.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropRoot.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragObject.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragResize.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragScrollView.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIDraggableCamera.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIEventTrigger.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIForwardEvents.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIGrid.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIImageButton.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIKeyBinding.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIKeyNavigation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlayAnimation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlaySound.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlayTween.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIPopupList.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIProgressBar.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UISavedOption.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIScrollBar.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIScrollView.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIShowControlScheme.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UISlider.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UISoundVolume.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UITable.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggle.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggledComponents.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggledObjects.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIWidgetContainer.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Interaction\UIWrapContent.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\ActiveAnimation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\AnimationOrTween.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\BMFont.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\BMGlyph.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\BMSymbol.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\BetterList.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\ByteReader.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\EventDelegate.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\Localization.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\MinMaxRangeAttribute.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\NGUIDebug.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\NGUIMath.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\NGUIText.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\NGUITools.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\PropertyBinding.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\PropertyReference.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\RealTime.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\SpringPanel.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIBasicSprite.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIDrawCall.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIEventListener.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIGeometry.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIRect.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UISnapshotPoint.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Internal\UIWidget.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedAlpha.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedColor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedWidget.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\SpringPosition.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenAlpha.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenColor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenFOV.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenFill.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenHeight.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenLetters.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenOrthoSize.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenPosition.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenRotation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenScale.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenTransform.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenVolume.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\TweenWidth.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Tweening\UITweener.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UI2DSprite.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UI2DSpriteAnimation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIAnchor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIAtlas.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UICamera.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIColorPicker.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIFont.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIInput.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIInputOnGUI.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UILabel.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UILocalize.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIOrthoCamera.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIPanel.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIRoot.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UISprite.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UISpriteAnimation.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UISpriteData.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIStretch.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UITextList.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\i6Media\Scripts\DontDestroyOnLoad.cs" />
+     <Compile Include="Assets\i6Media\Scripts\IASHandler.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\AdMob_Manager.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Analytics.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Auth.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Database.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\I6MediaPlugin.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\IAS.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Invites.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Messaging.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\ProjectManager.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\RemoteConfig.cs" />
+     <Compile Include="Assets\i6Media\Scripts\Managers\Storage.cs" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sw720dp-v13\values-sw720dp-v13.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-es\values-es.xml" />
+     <None Include="Assets\NGUI\ReadMe - 3.11.3.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-config-unity\maven-metadata.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseRemoteConfig_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ms\values-ms.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.29.0.txt" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ro\values-ro.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
+     <None Include="Assets\Firebase\Editor\FirebaseStorage_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Firebase\Editor\FirebaseAuth_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed.xml" />
+     <None Include="Assets\Fabric\NOTICE.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rGB\values-en-rGB.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-in\values-in.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\layout\tw__activity_share_email.xml" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-iw\values-iw.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-uk\values-uk.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ur\values-ur.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ca\values-ca.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\layout\tw__activity_oauth.xml" />
+     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ja\values-ja.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-pt\values-pt.xml" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitterkit-deps\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\Plugins\link.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rSS\values-en-rSS.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sr\values-sr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_default_light.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-xxhdpi-v4\values-xxhdpi-v4.xml" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-invites-unity\maven-metadata.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__composer_view.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\crashlytics\NOTICE.txt" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__app_card.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseAnalytics_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\Firebase\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sk\values-sk.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__btn_composer_tweet.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ar\values-ar.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__activity_composer.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__install_button_border.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-bg\values-bg.xml" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\Firebase\res\values\google-services.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_default.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sv\values-sv.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fi\values-fi.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fa\values-fa.xml" />
+     <None Include="Assets\Plugins\Android\fabric-init\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-bn\values-bn.xml" />
+     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ko\values-ko.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn.xml" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-cs\values-cs.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-zh-rCN\values-zh-rCN.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_light.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseDatabase_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hi\values-hi.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics\THIRDPARTYLICENSE.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-tr\values-tr.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-kn\values-kn.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-mr\values-mr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-gu\values-gu.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values-v21\values-v21.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-de\values-de.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__app_info_layout_border.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hr\values-hr.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-messaging-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\answers\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hu\values-hu.xml" />
+     <None Include="Assets\Plugins\Android\fabric\NOTICE.txt" />
+     <None Include="Assets\Firebase\Editor\FirebaseMessaging_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-vi\values-vi.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ru\values-ru.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_disabled.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-zh-rTW\values-zh-rTW.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\fabric\Template-AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Plugins\Android\firebase-iid-11.0.2\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-th\values-th.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-da\values-da.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values-v11\values-v11.xml" />
+     <None Include="Assets\Plugins\Android\firebase-common-11.0.2\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-pl\values-pl.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__transparent.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed_light.xml" />
+     <None Include="Assets\link.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitterkit-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\R.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-el\values-el.xml" />
+     <None Include="Assets\Plugins\Android\fabric\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hdpi-v4\values-hdpi-v4.xml" />
+     <None Include="Assets\Plugins\Android\beta\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-xhdpi-v4\values-xhdpi-v4.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-nl\values-nl.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\Plugins\Http\link.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-it\values-it.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseInvites_v4.0.1_manifest.txt" />
+     <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-tl\values-tl.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-nb\values-nb.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rXX\values-en-rXX.xml" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\fabric\THIRDPARTYLICENSE.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fr\values-fr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ta\values-ta.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_text_color_light.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="Analytics">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Validator">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Fabric/Managed/Validator.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Analytics">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.App">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Auth">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Database">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Invites">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Invites.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Messaging">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Messaging.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.RemoteConfig">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.RemoteConfig.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Storage">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.MiniJson">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Sharpen">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Compat">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Tasks">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

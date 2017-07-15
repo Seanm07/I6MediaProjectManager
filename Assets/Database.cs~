@@ -1,0 +1,68 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
+
+public class Database : MonoBehaviour {
+
+	public static Database staticRef;
+
+	public string databaseURL;
+
+	public static FirebaseDatabase dbInstance;
+	public static DatabaseReference dbReference;
+
+	void Awake()
+	{
+		staticRef = (staticRef == null ? this : staticRef);
+	}
+
+	void Start()
+	{
+		FirebaseApp.DefaultInstance.SetEditorDatabaseUrl (databaseURL);
+
+		dbInstance = FirebaseDatabase.DefaultInstance;
+		dbReference = dbInstance.RootReference;
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.O)) {
+			Set (new string[1]{"AnotherFolder/New"}, "Hello World!" + Random.Range(0, 9999));
+		}
+	}
+
+	private DatabaseReference GetDBRef(string[] dbPath)
+	{
+		DatabaseReference curDbPath = dbReference;
+
+		foreach (string path in dbPath)
+			curDbPath = curDbPath.Child (path);
+
+		return curDbPath;
+	}
+
+	public static bool Set(string[] dbPath, string newValue)
+	{
+		staticRef.GetDBRef(dbPath).SetValueAsync (newValue).ContinueWith (task => {
+			if(task.IsCanceled){
+				Analytics.LogError("SetData canceled!");
+				return false;
+			}
+
+			if(task.IsFaulted){
+				Analytics.LogError("SetData failed " + task.Exception);
+				return false;
+			}
+
+			Debug.Log("Done setting " + newValue);
+
+			return true;
+		});
+
+		return true;
+	}
+}

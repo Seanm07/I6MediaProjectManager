@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{1FB919D5-F5FC-A63B-F51F-E9794F710565}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_2;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;admob;auth;analytics;twitter;google;ias;remote_config;storage;messaging;invites;database;USES_BILLING;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Standard Assets\AndroidBilling.cs" />
+     <Compile Include="Assets\Standard Assets\BillingBase.cs" />
+     <Compile Include="Assets\Standard Assets\iOSBilling.cs" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sw720dp-v13\values-sw720dp-v13.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-es\values-es.xml" />
+     <None Include="Assets\NGUI\ReadMe - 3.11.3.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-config-unity\maven-metadata.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseRemoteConfig_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ms\values-ms.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.29.0.txt" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ro\values-ro.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
+     <None Include="Assets\Firebase\Editor\FirebaseStorage_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Firebase\Editor\FirebaseAuth_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed.xml" />
+     <None Include="Assets\Fabric\NOTICE.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rGB\values-en-rGB.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-in\values-in.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\layout\tw__activity_share_email.xml" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-iw\values-iw.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-uk\values-uk.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ur\values-ur.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ca\values-ca.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\layout\tw__activity_oauth.xml" />
+     <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ja\values-ja.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-pt\values-pt.xml" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitterkit-deps\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\Plugins\link.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rSS\values-en-rSS.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sr\values-sr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_default_light.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-xxhdpi-v4\values-xxhdpi-v4.xml" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-invites-unity\maven-metadata.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__composer_view.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\crashlytics\NOTICE.txt" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__app_card.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseAnalytics_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\Firebase\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sk\values-sk.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__btn_composer_tweet.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ar\values-ar.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\layout\tw__activity_composer.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__install_button_border.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-bg\values-bg.xml" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\Firebase\res\values\google-services.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_default.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-sv\values-sv.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fi\values-fi.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fa\values-fa.xml" />
+     <None Include="Assets\Plugins\Android\fabric-init\AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-bn\values-bn.xml" />
+     <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ko\values-ko.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn.xml" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-cs\values-cs.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Plugins\Android\firebase-analytics-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-zh-rCN\values-zh-rCN.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_light.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseDatabase_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\firebase-invites-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hi\values-hi.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics\THIRDPARTYLICENSE.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-tr\values-tr.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Plugins\Android\firebase-config-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-kn\values-kn.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-mr\values-mr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-gu\values-gu.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values-v21\values-v21.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-de\values-de.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\drawable\tw__app_info_layout_border.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hr\values-hr.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-messaging-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\answers\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hu\values-hu.xml" />
+     <None Include="Assets\Plugins\Android\fabric\NOTICE.txt" />
+     <None Include="Assets\Firebase\Editor\FirebaseMessaging_v4.0.1_manifest.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-vi\values-vi.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ru\values-ru.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_disabled.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-zh-rTW\values-zh-rTW.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\fabric\Template-AndroidManifest.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Plugins\Android\firebase-iid-11.0.2\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-th\values-th.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-da\values-da.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\res\values-v11\values-v11.xml" />
+     <None Include="Assets\Plugins\Android\firebase-common-11.0.2\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-pl\values-pl.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__transparent.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_pressed_light.xml" />
+     <None Include="Assets\link.xml" />
+     <None Include="Assets\Plugins\Android\fabric\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitterkit-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\firebase-messaging-unity-4.0.1\R.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-el\values-el.xml" />
+     <None Include="Assets\Plugins\Android\fabric\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-hdpi-v4\values-hdpi-v4.xml" />
+     <None Include="Assets\Plugins\Android\beta\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-xhdpi-v4\values-xhdpi-v4.xml" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-nl\values-nl.xml" />
+     <None Include="Assets\Plugins\Android\tweet-composer\AndroidManifest.xml" />
+     <None Include="Assets\Firebase\Plugins\Http\link.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-it\values-it.xml" />
+     <None Include="Assets\Firebase\Editor\FirebaseInvites_v4.0.1_manifest.txt" />
+     <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-tl\values-tl.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-nb\values-nb.xml" />
+     <None Include="Assets\Plugins\Android\crashlytics\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-en-rXX\values-en-rXX.xml" />
+     <None Include="Assets\Plugins\Android\firebase-auth-unity-4.0.1\R.txt" />
+     <None Include="Assets\Plugins\Android\firebase-app-unity-4.0.1\proguard.txt" />
+     <None Include="Assets\Plugins\Android\fabric\THIRDPARTYLICENSE.txt" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-fr\values-fr.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\values-ta\values-ta.xml" />
+     <None Include="Assets\Plugins\Android\twitter-core\res\drawable\tw__login_btn_text_color_light.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity_5_6_2/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="Analytics">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Fabric/Managed/Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Validator">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Fabric/Managed/Validator.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Analytics">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.App">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Auth">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Database">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Invites">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Invites.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Messaging">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Messaging.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.RemoteConfig">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.RemoteConfig.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Storage">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.MiniJson">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Sharpen">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Compat">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Tasks">
+ <HintPath>C:/Users/Sean McManus/Documents/Projects (Unity 5)/i6Media Internal Scripts/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

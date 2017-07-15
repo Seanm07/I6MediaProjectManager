@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using Firebase.Analytics;
+
+public class Analytics : MonoBehaviour {
+
+	// Enable or disable analytics collection (enabled by default)
+	public static void SetAnalyticsEnabled(bool wantEnabled)
+	{
+		FirebaseAnalytics.SetAnalyticsCollectionEnabled (wantEnabled);
+	}
+
+	public static void LogEvent(string eventName)
+	{
+		FirebaseAnalytics.LogEvent (eventName);
+	}
+}
